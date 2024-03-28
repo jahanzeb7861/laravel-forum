@@ -19,7 +19,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'avatar_path'
+        'avatar_path',
+        'type'
     ];
 
     /**
@@ -100,7 +101,7 @@ class User extends Authenticatable
      */
     public function isAdmin()
     {
-        return in_array($this->name, ['JohnDoe', 'JaneDoe']);
+        return in_array($this->type, ['admin']);
     }
 
     /**

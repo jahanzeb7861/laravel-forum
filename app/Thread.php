@@ -4,6 +4,7 @@ namespace App;
 
 use App\Events\ThreadReceivedNewReply;
 use App\Filters\ThreadFilters;
+use App\Models\Reply;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 // use Laravel\Scout\Searchable;

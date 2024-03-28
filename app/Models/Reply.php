@@ -1,9 +1,13 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
+use App\Favoritable;
+use App\RecordsActivity;
+use App\Thread;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
+use HTMLPurifier;
 
 class Reply extends Model
 {
@@ -141,6 +145,6 @@ class Reply extends Model
      */
     public function getBodyAttribute($body)
     {
-        return \Purify::clean($body);
+        return HTMLPurifier::getInstance()->purify($body);
     }
 }

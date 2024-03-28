@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\CreatePostRequest;
-use App\Reply;
+use App\Models\Reply;
 use App\Thread;
 
 class RepliesController extends Controller

@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Models\Reply;
 use Carbon\Carbon;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -19,7 +20,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'avatar_path'
+        'avatar_path',
+        'type'
     ];
 
     /**
@@ -100,7 +102,7 @@ class User extends Authenticatable
      */
     public function isAdmin()
     {
-        return in_array($this->name, ['JohnDoe', 'JaneDoe']);
+        return in_array($this->type, ['admin']);
     }
 
     /**
