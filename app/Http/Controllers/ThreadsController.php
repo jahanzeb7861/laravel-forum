@@ -47,7 +47,10 @@ class ThreadsController extends Controller
      */
     public function create()
     {
-        return view('threads.create');
+
+        $channels = Channel::all();
+
+        return view('threads.create',compact('channels'));
     }
 
     /**
@@ -62,8 +65,18 @@ class ThreadsController extends Controller
             'title' => 'required|spamfree',
             'body' => 'required|spamfree',
             'channel_id' => 'required|exists:channels,id',
-            'g-recaptcha-response' => ['required', $recaptcha]
+            // 'g-recaptcha-response' => ['required', $recaptcha]
         ]);
+
+
+        // check here if user is aadmin then allow it to create a new thread
+
+        $user = auth()->user();
+
+        if ($user->type != 'admin') {
+            return redirect()->back()
+            ->with('status', 'Only Admin can create New Thread!');
+        }
 
         $thread = Thread::create([
             'user_id' => auth()->id(),

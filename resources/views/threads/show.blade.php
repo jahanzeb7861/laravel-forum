@@ -19,14 +19,15 @@
                         <div class="panel-body">
                             <p>
                                 This thread was published {{ $thread->created_at->diffForHumans() }} by
-                                <a href="#">{{ $thread->creator->name }}</a>, and currently
+                                <a href="#">{{ $thread->creator->name }}</a>
+                                <!-- , and currently
                                 has <span
                                         v-text="repliesCount"></span> 0 replies
-                                .
+                                . -->
                             </p>
 
                             <p>
-                                <subscribe-button :active="{{ json_encode($thread->isSubscribedTo) }}" v-if="signedIn"></subscribe-button>
+                                <!-- <subscribe-button :active="{{ json_encode($thread->isSubscribedTo) }}" v-if="signedIn"></subscribe-button> -->
 
                                 <button class="btn btn-default"
                                         v-if="authorize('isAdmin')"

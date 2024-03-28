@@ -16,12 +16,11 @@
                     </h4>
 
                     <h5>
-                        Posted By: <a href="asfasaasf">asfaf</a>
+                        Posted By: <a href="/profiles/{{ $thread->creator->name }}">{{ $thread->creator->name }}</a>
                     </h5>
                 </div>
-
                 <a href="{{ $thread->path() }}">
-                   safaf
+                    {{ $thread->replies_count }} {{ Illuminate\Support\Str::plural('reply', $thread->replies_count) }}
                 </a>
             </div>
         </div>

@@ -36,11 +36,11 @@
 <div class="panel panel-default" v-else>
     <div class="panel-heading">
         <div class="level">
-            <img src="{{ $thread->creator->avatar_path }}"
-                 alt="{{ $thread->creator->name }}"
-                 width="25"
-                 height="25"
-                 class="mr-1">
+        <img src="https://d3bpeqsaub0i6y.cloudfront.net/user_avatar/meta.discourse.org/nbianca/144/157984_2.png"
+            alt="{{ $thread->creator->name }}"
+            width="25"
+            height="25"
+            class="mr-1">
 
             <span class="flex">
                 <a href="{{ route('profile', $thread->creator) }}">{{ $thread->creator->name }}</a> posted: <span v-text="title"></span>

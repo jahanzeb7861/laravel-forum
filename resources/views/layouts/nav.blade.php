@@ -1,5 +1,6 @@
 <nav class="navbar navbar-default navbar-static-top">
     <div class="container">
+
         <div class="navbar-header">
 
             <!-- Collapsed Hamburger -->
@@ -45,10 +46,9 @@
                        aria-expanded="false">Channels <span class="caret"></span></a>
 
                     <ul class="dropdown-menu">
-
-                        <li><a href="asfsf">Channel One</a></li>
-                        <li><a href="asfsf">Channel Two</a></li>
-                        <li><a href="asfsf">Channel Three</a></li>
+                        @foreach ($channels as $channel)
+                            <li><a href="/threads/{{ $channel->slug }}">{{ $channel->name }}</a></li>
+                        @endforeach
                     </ul>
                 </li>
             </ul>
@@ -57,8 +57,8 @@
             <ul class="nav navbar-nav navbar-right">
                 <!-- Authentication Links -->
                 @if (Auth::guest())
-                    <li><a href="#">Login</a></li>
-                    <li><a href="#">Register</a></li>
+                <li><a href="{{ route('login') }}">Login</a></li>
+                    <li><a href="{{ route('register') }}">Register</a></li>
                 @else
                     <user-notifications></user-notifications>
 
@@ -92,3 +92,19 @@
         </div>
     </div>
 </nav>
+
+
+
+        @if (session('status'))
+            <div class="container">
+               <div class="row">
+                    <div class="alert alert-danger alert-dismissible">
+                        {{ session('status') }}
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+               </div>
+            </div>
+        @endif
+

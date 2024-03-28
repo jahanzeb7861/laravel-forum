@@ -14,11 +14,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    // return view('welcome');
+    return redirect('/threads');
 });
 
 
-// Auth::routes();
+Auth::routes();
 
 Route::get('/home', 'App\Http\Controllers\HomeController@index');
 
@@ -28,7 +29,8 @@ Route::get('threads/search', 'App\Http\Controllers\SearchController@show');
 Route::get('threads/{channel}/{thread}', 'App\Http\Controllers\ThreadsController@show');
 Route::patch('threads/{channel}/{thread}', 'App\Http\Controllers\ThreadsController@update');
 Route::delete('threads/{channel}/{thread}', 'App\Http\Controllers\ThreadsController@destroy');
-Route::post('threads', 'App\Http\Controllers\ThreadsController@store')->middleware('must-be-confirmed');
+// Route::post('threads', 'App\Http\Controllers\ThreadsController@store')->middleware('must-be-confirmed');
+Route::post('threads', 'App\Http\Controllers\ThreadsController@store');
 Route::get('threads/{channel}', 'App\Http\Controllers\ThreadsController@index');
 
 Route::post('locked-threads/{thread}', 'App\Http\Controllers\LockedThreadsController@store')->name('locked-threads.store')->middleware('admin');

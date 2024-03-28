@@ -6,11 +6,12 @@ use App\Events\ThreadReceivedNewReply;
 use App\Filters\ThreadFilters;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
-use Laravel\Scout\Searchable;
+// use Laravel\Scout\Searchable;
+use Illuminate\Support\Str;
 
 class Thread extends Model
 {
-    use RecordsActivity, Searchable;
+    use RecordsActivity;
 
     /**
      * Don't auto-apply mass assignment protection.
@@ -215,7 +216,7 @@ class Thread extends Model
      */
     public function setSlugAttribute($value)
     {
-        if (static::whereSlug($slug = str_slug($value))->exists()) {
+        if (static::whereSlug($slug = Str::slug($value))->exists()) {
             $slug = "{$slug}-{$this->id}";
         }
 
