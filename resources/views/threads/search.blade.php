@@ -9,7 +9,7 @@
                 index-name="threads"
                 query="{{ request('q') }}"
             >
-                <div class="col-md-8">
+                <div class="col-md-12">
                     <ais-results>
                         <template scope="{ result }">
                             <li>
@@ -21,7 +21,7 @@
                     </ais-results>
                 </div>
 
-                <div class="col-md-4">
+                <!-- <div class="col-md-4">
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             Search
@@ -45,7 +45,7 @@
                     </div>
 
 
-                </div>
+                </div> -->
             </ais-index>
         </div>
     </div>
