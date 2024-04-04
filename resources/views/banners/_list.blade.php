@@ -27,7 +27,7 @@
             <thead>
                 <tr>
                     <th>Title</th>
-                    <!-- <th>Type</th> -->
+                    <th>Position</th>
                     <th>Link</th>
                     <th>Image</th>
                     <th>Size</th>
@@ -42,7 +42,7 @@
                                 <strong>{{ $banner->title }}</strong>
                             </a>
                         </td>
-                        <!-- <td>{{ $banner->type }}</td> -->
+                        <td>{{ $banner->position }}</td>
                         <td>{{ $banner->link }}</td>
                         <td>
 

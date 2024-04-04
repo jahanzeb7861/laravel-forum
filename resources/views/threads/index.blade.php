@@ -1,29 +1,25 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container-fluid">
+
+
+    <div class="contsaainer" style="margin-top: 2rem;">
         <div class="row">
 
-        <div class="col-md-2">
+            <div class="col-md-2" style="margin-top: 2rem;margin-bottom: 2rem;">
                 @if(!Str::startsWith(request()->path(), 'banners') && !Str::startsWith(request()->path(), 'login'))
                     @if(!Str::startsWith(request()->path(), 'profiles'))
                         @if(!Str::startsWith(request()->path(), 'register'))
-                            <div class="container">
+                            <div class="contasiner">
                                 <div class="row">
                                     @if(count($banners) > 0)
                                         @foreach($banners as $banner)
-                                            <div class="form-media-box media-{{ $banner->id }}">
-                                                    <!-- <img src="{{ asset('uploads/content/' . $banner->image) }}" width="{{ $banner->size }}" style="
-    position: sticky;
-    left: 0;
-    z-index: 1111111;
-"/> -->
-                                                    <img src="{{ $banner->link }}" width="{{ $banner->size }}" style="
-    position: sticky;
-    left: 0;
-    z-index: 1111111;
-"/>
+                                            @if($banner->position == 'left')
+                                                <div class="form-media-box media-{{ $banner->id }}">
+                                                        <!-- <img src="{{ asset('uploads/content/' . $banner->image) }}" width="{{ $banner->size }}" style="position: sticky;left: 0;z-index: 1111111;"/> -->
+                                                        <img src="{{ $banner->link }}" width="{{ $banner->size }}" style="position: sticky;left: 0;z-index: 1111111;"/>
                                                 </div>
+                                            @endif
                                         @endforeach
                                     @endif
                                 </div>
@@ -68,22 +64,16 @@
                 @if(!Str::startsWith(request()->path(), 'banners') && !Str::startsWith(request()->path(), 'login'))
                     @if(!Str::startsWith(request()->path(), 'profiles'))
                         @if(!Str::startsWith(request()->path(), 'register'))
-                            <div class="container">
+                            <div class="contasiner">
                                 <div class="row">
                                     @if(count($banners) > 0)
                                         @foreach($banners as $banner)
-                                        <div class="form-media-box media-{{ $banner->id }}">
-                                                    <!-- <img src="{{ asset('uploads/content/' . $banner->image) }}" width="{{ $banner->size }}" style="
-    position: sticky;
-    left: 0;
-    z-index: 1111111;
-"/> -->
-                                                    <img src="{{ $banner->link }}" width="{{ $banner->size }}" style="
-    position: sticky;
-    left: 0;
-    z-index: 1111111;
-"/>
+                                            @if($banner->position == 'right')
+                                                <div class="form-media-box media-{{ $banner->id }}">
+                                                    <!-- <img src="{{ asset('uploads/content/' . $banner->image) }}" width="{{ $banner->size }}" style="position: sticky;left: 0;z-index: 1111111;"/> -->
+                                                    <img src="{{ $banner->link }}" width="{{ $banner->size }}" style="position: sticky;left: 0;z-index: 1111111;"/>
                                                 </div>
+                                            @endif
                                         @endforeach
                                     @endif
                                 </div>

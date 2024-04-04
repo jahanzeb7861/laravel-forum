@@ -43,12 +43,22 @@
                                        value="{{ old('size') }}" required>
                             </div>
 
+                            <div class="form-group">
+                                <label for="position">Position:</label>
+                                <select class="form-control" id="position" name="position" required>
+                                    <option value="top">Top</option>
+                                    <option value="bottom">Bottom</option>
+                                    <option value="left">Left</option>
+                                    <option value="right">Right</option>
+                                </select>
+                            </div>
+
                             <!-- <div class="form-group">
                                 <label for="image">Image:</label>
                                 <input type="file" class="form-control-file" id="image" name="image" accept="image/*" required>
                             </div> -->
 
-                            <div class="col-md-12">
+                            <!-- <div class="col-md-12">
                                     <div class="custom-file-container" data-upload-id="mySecondImage">
                                         <label>Upload
                                             <a href="javascript:void(0)" class="custom-file-container__image-clear"
@@ -85,7 +95,7 @@
                                         </div>
                                     </div>
                                     @endif
-                                </div>
+                                </div> -->
 
 
                             <div class="form-group">

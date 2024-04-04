@@ -45,12 +45,22 @@
                                 value="{{ @$banner->size }}" required>
                             </div>
 
+                            <div class="form-group">
+                                <label for="position">Position:</label>
+                                <select class="form-control" id="position" name="position" required>
+                                    <option value="top" {{ @$banner->position == 'top' ? 'selected' : '' }}>Top</option>
+                                    <option value="bottom" {{ @$banner->position == 'bottom' ? 'selected' : '' }}>Bottom</option>
+                                    <option value="left" {{ @$banner->position == 'left' ? 'selected' : '' }}>Left</option>
+                                    <option value="right" {{ @$banner->position == 'right' ? 'selected' : '' }}>Right</option>
+                                </select>
+                            </div>
+
                             <!-- <div class="form-group">
                                 <label for="image">Image:</label>
                                 <input type="file" class="form-control-file" id="image" name="image" accept="image/*" required>
                             </div> -->
 
-                            <div class="col-md-12">
+                            <!-- <div class="col-md-12">
                                     <div class="custom-file-container" data-upload-id="mySecondImage">
                                         <label>Upload
                                             <a href="javascript:void(0)" class="custom-file-container__image-clear"
@@ -64,14 +74,7 @@
                                         </label>
                                         <div class="custom-file-container__image-preview"></div>
                                     </div>
-                                    @if (isset($banner))
-                                        <!-- <div class="image-list">
-                                            <div class="form-media-box media-{{ $banner->id }}">
-                                                <img src="{{ asset('uploads/content/' . $banner->image) }}" width="500"/>
-                                            </div>
-                                        </div> -->
-                                    @endif
-                                </div>
+                                </div> -->
 
 
                             <div class="form-group">

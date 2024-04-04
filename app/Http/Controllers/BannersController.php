@@ -95,6 +95,7 @@ class BannersController extends Controller
             'title' => 'required|spamfree',
             'link' => 'required|spamfree',
             'size' => 'required|spamfree',
+            'position' => 'required|spamfree',
             // 'file' => 'required|file|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
@@ -128,12 +129,26 @@ class BannersController extends Controller
                     'link' => $request->input('link'),
                     'image' => $imageName,
                     'size' => $request->input('size'),
+                    'position' => $request->input('position'),
                     'type' => 'slider',
                     'alt' => $request->input('title'),
                     'sort' => 1,
                     'status' => 1,
                 ]);
             }
+        } else {
+
+            $banner = Banner::create([
+            'title' => $request->input('title'),
+            'link' => $request->input('link'),
+            'size' => $request->input('size'),
+            'position' => $request->input('position'),
+            'type' => 'slider',
+            'alt' => $request->input('title'),
+            'sort' => 1,
+            'status' => 1,
+        ]);
+
         }
 
 
@@ -198,6 +213,7 @@ class BannersController extends Controller
                         'link' => $request->input('link'),
                         'image' => $imageName,
                         'size' => $request->input('size'),
+                        'position' => $request->input('position'),
                         'type' => 'slider',
                         'alt' => $request->input('title'),
                         'sort' => 1,
@@ -210,6 +226,7 @@ class BannersController extends Controller
                 'title' => $request->input('title'),
                 'link' => $request->input('link'),
                 'size' => $request->input('size'),
+                'position' => $request->input('position'),
                 'type' => 'slider',
                 'alt' => $request->input('title'),
                 'sort' => 1,

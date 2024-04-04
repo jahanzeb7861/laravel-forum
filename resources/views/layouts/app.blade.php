@@ -35,6 +35,12 @@
         .ml-a { margin-left: auto; }
         [v-cloak] { display: none; }
         .ais-highlight > em { background: yellow; font-style: normal; }
+
+        @media (max-width: 1203px) {
+            .col-md-7 {
+                margin-left: 4rem;
+            }
+        }
     </style>
 
     @yield('head')
@@ -54,10 +60,12 @@
                     <div class="row">
                         @if(count($banners) > 0)
                             @foreach($banners as $banner)
-                            <div class="form-media-box media-{{ $banner->id }}">
+                                @if($banner->position == 'top')
+                                    <div class="form-media-box media-{{ $banner->id }}">
                                         <!-- <img src="{{ asset('uploads/content/' . $banner->image) }}"/> -->
-                                        <img src="{{ $banner->link }}" width="900"/>
+                                        <img src="{{ $banner->link }}" width="{{$banner->size}}"/>
                                     </div>
+                                @endif
                             @endforeach
                         @endif
                     </div>
@@ -78,10 +86,12 @@
                     <div class="row">
                         @if(count($banners) > 0)
                             @foreach($banners as $banner)
-                                <div class="form-media-box media-{{ $banner->id }}">
+                                 @if($banner->position == 'bottom')
+                                    <div class="form-media-box media-{{ $banner->id }}">
                                         <!-- <img src="{{ asset('uploads/content/' . $banner->image) }}"/> -->
-                                        <img src="{{ $banner->link }}" width="900"/>
+                                        <img src="{{ $banner->link }}" width="{{$banner->size}}"/>
                                     </div>
+                                @endif
                             @endforeach
                         @endif
                     </div>
