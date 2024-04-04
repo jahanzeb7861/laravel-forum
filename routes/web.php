@@ -57,3 +57,15 @@ Route::get('/register/confirm', 'App\Http\Controllers\Auth\RegisterConfirmationC
 
 Route::get('api/users', 'App\Http\Controllers\Api\UsersController@index');
 Route::post('api/users/{user}/avatar', 'App\Http\Controllers\Api\UserAvatarController@store')->middleware('auth')->name('avatar');
+
+Route::get('/telegram/connect', 'TelegramController@connect')->name('telegram.connect');
+// Route::get('/telegram/callback', 'TelegramController@callback')->name('telegram.callback');
+
+
+// Banners
+Route::get('banners', 'App\Http\Controllers\BannersController@index')->name('banners');
+Route::post('banners', 'App\Http\Controllers\BannersController@store')->name('banners.store');
+Route::get('/banners/create', 'App\Http\Controllers\BannersController@create')->name('banners.create');
+Route::get('/banners/{banner}/edit', 'App\Http\Controllers\BannersController@edit')->name('banners.edit');
+Route::post('/banners/update', 'App\Http\Controllers\BannersController@updateBanner')->name('banners.update');
+Route::delete('/banners/{banner}', 'App\Http\Controllers\BannersController@destroy')->name('banners.destroy');

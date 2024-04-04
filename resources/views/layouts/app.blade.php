@@ -14,6 +14,9 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/trix/0.11.1/trix.css">
 
+     <!-- Font Awesome -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
     <!-- Scripts -->
     <script>
         window.App = {!! json_encode([
@@ -40,7 +43,42 @@
 <div id="app">
     @include ('layouts.nav')
 
+    @php
+        use Illuminate\Support\Str;
+    @endphp
+
+    @if(!Str::startsWith(request()->path(), 'banners'))
+        <div class="container">
+            <div class="row">
+                @if(count($banners) > 0)
+                    @foreach($banners as $banner)
+                         <div class="form-media-box media-{{ $banner->id }}">
+                                <img src="{{ asset('uploads/content/' . $banner->image) }}"/>
+                            </div>
+                    @endforeach
+                @endif
+            </div>
+        </div>
+    @endif
+
+
+
     @yield('content')
+
+
+    @if(!Str::startsWith(request()->path(), 'banners'))
+        <div class="container">
+            <div class="row">
+                @if(count($banners) > 0)
+                    @foreach($banners as $banner)
+                         <div class="form-media-box media-{{ $banner->id }}">
+                                <img src="{{ asset('uploads/content/' . $banner->image) }}"/>
+                            </div>
+                    @endforeach
+                @endif
+            </div>
+        </div>
+    @endif
 
     <flash message="{{ session('flash') }}"></flash>
 </div>

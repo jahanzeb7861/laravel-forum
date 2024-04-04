@@ -51,6 +51,12 @@
                         @endforeach
                     </ul>
                 </li>
+
+                @if(auth()->user() && auth()->user()->isAdmin())
+                    <li>
+                        <a href="/banners">Manage Banners</a>
+                    </li>
+                @endif
             </ul>
 
             <!-- Right Side Of Navbar -->
