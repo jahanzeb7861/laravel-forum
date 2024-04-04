@@ -127,6 +127,7 @@ class BannersController extends Controller
                 $banner = Banner::create([
                     'title' => $request->input('title'),
                     'link' => $request->input('link'),
+                    'store_link' => $request->input('store_link'),
                     'image' => $imageName,
                     'size' => $request->input('size'),
                     'position' => $request->input('position'),
@@ -141,6 +142,7 @@ class BannersController extends Controller
             $banner = Banner::create([
             'title' => $request->input('title'),
             'link' => $request->input('link'),
+            'store_link' => $request->input('store_link'),
             'size' => $request->input('size'),
             'position' => $request->input('position'),
             'type' => 'slider',
@@ -211,6 +213,7 @@ class BannersController extends Controller
                     $banner->update([
                         'title' => $request->input('title'),
                         'link' => $request->input('link'),
+                        'store_link' => $request->input('store_link'),
                         'image' => $imageName,
                         'size' => $request->input('size'),
                         'position' => $request->input('position'),
@@ -225,6 +228,7 @@ class BannersController extends Controller
             $banner->update([
                 'title' => $request->input('title'),
                 'link' => $request->input('link'),
+                'store_link' => $request->input('store_link'),
                 'size' => $request->input('size'),
                 'position' => $request->input('position'),
                 'type' => 'slider',

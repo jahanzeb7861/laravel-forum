@@ -30,6 +30,7 @@
                     <th>Position</th>
                     <th>Link</th>
                     <th>Image</th>
+                    <th>Store Link</th>
                     <th>Size</th>
                     <th>Action</th>
                 </tr>
@@ -44,6 +45,7 @@
                         </td>
                         <td>{{ $banner->position }}</td>
                         <td>{{ $banner->link }}</td>
+
                         <td>
 
                         <div class="image-list">
@@ -57,6 +59,8 @@
                                 <img src="{{ $banner->image }}" width="500"/>
                             </div>
                         </div>
+
+                        <td>{{ $banner->store_link }}</td>
 
 
                         <!-- <img src="{{ $banner->image }}" alt="{{ $banner->alt }}" width="500"></td> -->

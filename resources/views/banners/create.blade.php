@@ -36,6 +36,13 @@
                                        value="{{ old('link') }}" required>
                             </div>
 
+                            <div class="form-group">
+                                <label for="store_link">Store Link:</label>
+                                <input type="text" class="form-control" id="store_link" name="store_link"
+                                       value="{{ old('store_link') }}" required>
+                            </div>
+
+
 
                             <div class="form-group">
                                 <label for="size">Size:</label>

@@ -40,6 +40,12 @@
                             </div>
 
                             <div class="form-group">
+                                <label for="store_link">Store Link:</label>
+                                <input type="text" class="form-control" id="store_link" name="store_link"
+                                    value="{{ @$banner->store_link }}" required>
+                            </div>
+
+                            <div class="form-group">
                                 <label for="size">Size:</label>
                                 <input type="text" class="form-control" id="size" name="size"
                                 value="{{ @$banner->size }}" required>
