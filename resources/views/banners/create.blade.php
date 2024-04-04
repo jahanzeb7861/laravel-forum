@@ -36,6 +36,13 @@
                                        value="{{ old('link') }}" required>
                             </div>
 
+
+                            <div class="form-group">
+                                <label for="size">Size:</label>
+                                <input type="text" class="form-control" id="size" name="size"
+                                       value="{{ old('size') }}" required>
+                            </div>
+
                             <!-- <div class="form-group">
                                 <label for="image">Image:</label>
                                 <input type="file" class="form-control-file" id="image" name="image" accept="image/*" required>

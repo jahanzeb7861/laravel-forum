@@ -47,18 +47,23 @@
         use Illuminate\Support\Str;
     @endphp
 
-    @if(!Str::startsWith(request()->path(), 'banners'))
-        <div class="container">
-            <div class="row">
-                @if(count($banners) > 0)
-                    @foreach($banners as $banner)
-                         <div class="form-media-box media-{{ $banner->id }}">
-                                <img src="{{ asset('uploads/content/' . $banner->image) }}"/>
-                            </div>
-                    @endforeach
-                @endif
-            </div>
-        </div>
+    @if(!Str::startsWith(request()->path(), 'banners') && !Str::startsWith(request()->path(), 'login'))
+        @if(!Str::startsWith(request()->path(), 'profiles'))
+            @if(!Str::startsWith(request()->path(), 'register'))
+                <div class="container">
+                    <div class="row">
+                        @if(count($banners) > 0)
+                            @foreach($banners as $banner)
+                            <div class="form-media-box media-{{ $banner->id }}">
+                                        <!-- <img src="{{ asset('uploads/content/' . $banner->image) }}"/> -->
+                                        <img src="{{ $banner->link }}" width="900"/>
+                                    </div>
+                            @endforeach
+                        @endif
+                    </div>
+                </div>
+            @endif
+        @endif
     @endif
 
 
@@ -66,18 +71,23 @@
     @yield('content')
 
 
-    @if(!Str::startsWith(request()->path(), 'banners'))
-        <div class="container">
-            <div class="row">
-                @if(count($banners) > 0)
-                    @foreach($banners as $banner)
-                         <div class="form-media-box media-{{ $banner->id }}">
-                                <img src="{{ asset('uploads/content/' . $banner->image) }}"/>
-                            </div>
-                    @endforeach
-                @endif
-            </div>
-        </div>
+    @if(!Str::startsWith(request()->path(), 'banners') && !Str::startsWith(request()->path(), 'login'))
+        @if(!Str::startsWith(request()->path(), 'profiles'))
+            @if(!Str::startsWith(request()->path(), 'register'))
+                <div class="container">
+                    <div class="row">
+                        @if(count($banners) > 0)
+                            @foreach($banners as $banner)
+                                <div class="form-media-box media-{{ $banner->id }}">
+                                        <!-- <img src="{{ asset('uploads/content/' . $banner->image) }}"/> -->
+                                        <img src="{{ $banner->link }}" width="900"/>
+                                    </div>
+                            @endforeach
+                        @endif
+                    </div>
+                </div>
+            @endif
+        @endif
     @endif
 
     <flash message="{{ session('flash') }}"></flash>

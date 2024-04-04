@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Banner;
 use App\Channel;
 use App\Filters\ThreadFilters;
 use App\Rules\Recaptcha;
@@ -34,8 +35,12 @@ class ThreadsController extends Controller
             return $threads;
         }
 
+        $banners = Banner::all();
+
+
         return view('threads.index', [
             'threads' => $threads,
+            'banners' => $banners,
             'trending' => $trending->get()
         ]);
     }

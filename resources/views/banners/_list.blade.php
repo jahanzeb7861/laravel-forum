@@ -30,7 +30,7 @@
                     <!-- <th>Type</th> -->
                     <th>Link</th>
                     <th>Image</th>
-                    <!-- <th>Status</th> -->
+                    <th>Size</th>
                     <th>Action</th>
                 </tr>
             </thead>
@@ -47,14 +47,20 @@
                         <td>
 
                         <div class="image-list">
-                            <div class="form-media-box media-{{ $banner->id }}">
+                            <!-- <div class="form-media-box media-{{ $banner->id }}">
                                 <img src="{{ asset('uploads/content/' . $banner->image) }}" width="500"/>
+                            </div>
+                        </div> -->
+
+                        <div class="image-list">
+                            <div class="form-media-box media-{{ $banner->id }}">
+                                <img src="{{ $banner->image }}" width="500"/>
                             </div>
                         </div>
 
 
                         <!-- <img src="{{ $banner->image }}" alt="{{ $banner->alt }}" width="500"></td> -->
-                        <!-- <td>{{ $banner->status }}</td> -->
+                        <td>{{ $banner->size }}px</td>
 
                         <!-- <td>
                             <div class="custom-toggle form-check form-switch">

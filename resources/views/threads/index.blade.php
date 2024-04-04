@@ -1,9 +1,41 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
-            <div class="col-md-12">
+
+        <div class="col-md-2">
+                @if(!Str::startsWith(request()->path(), 'banners') && !Str::startsWith(request()->path(), 'login'))
+                    @if(!Str::startsWith(request()->path(), 'profiles'))
+                        @if(!Str::startsWith(request()->path(), 'register'))
+                            <div class="container">
+                                <div class="row">
+                                    @if(count($banners) > 0)
+                                        @foreach($banners as $banner)
+                                            <div class="form-media-box media-{{ $banner->id }}">
+                                                    <!-- <img src="{{ asset('uploads/content/' . $banner->image) }}" width="{{ $banner->size }}" style="
+    position: sticky;
+    left: 0;
+    z-index: 1111111;
+"/> -->
+                                                    <img src="{{ $banner->link }}" width="{{ $banner->size }}" style="
+    position: sticky;
+    left: 0;
+    z-index: 1111111;
+"/>
+                                                </div>
+                                        @endforeach
+                                    @endif
+                                </div>
+                            </div>
+                        @endif
+                    @endif
+                @endif
+            </div>
+
+
+
+            <div class="col-md-7">
                 @include ('threads._list')
 
                 {{ $threads->render() }}
@@ -30,6 +62,38 @@
 
 
             </div> -->
+
+
+            <div class="col-md-2">
+                @if(!Str::startsWith(request()->path(), 'banners') && !Str::startsWith(request()->path(), 'login'))
+                    @if(!Str::startsWith(request()->path(), 'profiles'))
+                        @if(!Str::startsWith(request()->path(), 'register'))
+                            <div class="container">
+                                <div class="row">
+                                    @if(count($banners) > 0)
+                                        @foreach($banners as $banner)
+                                        <div class="form-media-box media-{{ $banner->id }}">
+                                                    <!-- <img src="{{ asset('uploads/content/' . $banner->image) }}" width="{{ $banner->size }}" style="
+    position: sticky;
+    left: 0;
+    z-index: 1111111;
+"/> -->
+                                                    <img src="{{ $banner->link }}" width="{{ $banner->size }}" style="
+    position: sticky;
+    left: 0;
+    z-index: 1111111;
+"/>
+                                                </div>
+                                        @endforeach
+                                    @endif
+                                </div>
+                            </div>
+                        @endif
+                    @endif
+                @endif
+            </div>
+
+
         </div>
     </div>
 @endsection

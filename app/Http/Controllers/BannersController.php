@@ -94,6 +94,7 @@ class BannersController extends Controller
         $request->validate([
             'title' => 'required|spamfree',
             'link' => 'required|spamfree',
+            'size' => 'required|spamfree',
             // 'file' => 'required|file|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
@@ -126,6 +127,7 @@ class BannersController extends Controller
                     'title' => $request->input('title'),
                     'link' => $request->input('link'),
                     'image' => $imageName,
+                    'size' => $request->input('size'),
                     'type' => 'slider',
                     'alt' => $request->input('title'),
                     'sort' => 1,
@@ -195,6 +197,7 @@ class BannersController extends Controller
                         'title' => $request->input('title'),
                         'link' => $request->input('link'),
                         'image' => $imageName,
+                        'size' => $request->input('size'),
                         'type' => 'slider',
                         'alt' => $request->input('title'),
                         'sort' => 1,
@@ -202,6 +205,16 @@ class BannersController extends Controller
                     ]);
                 }
             }
+
+            $banner->update([
+                'title' => $request->input('title'),
+                'link' => $request->input('link'),
+                'size' => $request->input('size'),
+                'type' => 'slider',
+                'alt' => $request->input('title'),
+                'sort' => 1,
+                'status' => 1,
+            ]);
 
             return redirect('/banners')->with('flash', 'Your banner has been updated!');
         } catch (\Throwable $th) {
