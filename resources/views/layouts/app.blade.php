@@ -63,7 +63,9 @@
                                 @if($banner->position == 'top')
                                     <div class="form-media-box media-{{ $banner->id }}">
                                         <!-- <img src="{{ asset('uploads/content/' . $banner->image) }}"/> -->
-                                        <img src="{{ $banner->link }}" width="{{$banner->size}}"/>
+                                        <a href="{{ $banner->link }}" target="_blank">
+                                            <img src="{{ $banner->link }}" width="{{$banner->size}}"/>
+                                        </a>
                                     </div>
                                 @endif
                             @endforeach
@@ -89,7 +91,9 @@
                                  @if($banner->position == 'bottom')
                                     <div class="form-media-box media-{{ $banner->id }}">
                                         <!-- <img src="{{ asset('uploads/content/' . $banner->image) }}"/> -->
-                                        <img src="{{ $banner->link }}" width="{{$banner->size}}"/>
+                                        <a href="{{ $banner->link }}" target="_blank">
+                                            <img src="{{ $banner->link }}" width="{{$banner->size}}"/>
+                                        </a>
                                     </div>
                                 @endif
                             @endforeach

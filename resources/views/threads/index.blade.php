@@ -17,8 +17,10 @@
                                             @if($banner->position == 'left')
                                                 <div class="form-media-box media-{{ $banner->id }}">
                                                         <!-- <img src="{{ asset('uploads/content/' . $banner->image) }}" width="{{ $banner->size }}" style="position: sticky;left: 0;z-index: 1111111;"/> -->
-                                                        <img src="{{ $banner->link }}" width="{{ $banner->size }}" style="position: sticky;left: 0;z-index: 1111111;"/>
-                                                </div>
+                                                        <a href="{{ $banner->link }}" target="_blank">
+                                                         <img src="{{ $banner->link }}" width="{{ $banner->size }}" style="position: sticky;left: 0;z-index: 1111111;"/>
+                                                        </a>
+                                                    </div>
                                             @endif
                                         @endforeach
                                     @endif
@@ -71,7 +73,9 @@
                                             @if($banner->position == 'right')
                                                 <div class="form-media-box media-{{ $banner->id }}">
                                                     <!-- <img src="{{ asset('uploads/content/' . $banner->image) }}" width="{{ $banner->size }}" style="position: sticky;left: 0;z-index: 1111111;"/> -->
-                                                    <img src="{{ $banner->link }}" width="{{ $banner->size }}" style="position: sticky;left: 0;z-index: 1111111;"/>
+                                                    <a href="{{ $banner->link }}" target="_blank">
+                                                         <img src="{{ $banner->link }}" width="{{ $banner->size }}" style="position: sticky;left: 0;z-index: 1111111;"/>
+                                                        </a>
                                                 </div>
                                             @endif
                                         @endforeach
