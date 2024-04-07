@@ -58,7 +58,8 @@ Route::get('/register/confirm', 'App\Http\Controllers\Auth\RegisterConfirmationC
 Route::get('api/users', 'App\Http\Controllers\Api\UsersController@index');
 Route::post('api/users/{user}/avatar', 'App\Http\Controllers\Api\UserAvatarController@store')->middleware('auth')->name('avatar');
 
-Route::get('/telegram/connect', 'TelegramController@connect')->name('telegram.connect');
+Route::get('/telegram/show_connect', 'App\Http\Controllers\TelegramController@showConnectButton')->name('telegram.show_connect');
+Route::get('/telegram/connect', 'App\Http\Controllers\TelegramController@callback')->name('telegram.connect');
 // Route::get('/telegram/callback', 'TelegramController@callback')->name('telegram.callback');
 
 

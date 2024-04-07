@@ -5,8 +5,21 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">Login</div>
+                <div class="panel-heading">Connect With Telegram</div>
                 <div class="panel-body">
+
+
+                    <div class="col-md-8 col-md-offset-4">
+
+                        @if(auth()->user()->telegram_id)
+                            <div>
+                            Already Connected
+                            </div>
+                        @else
+                            <div id="telegram-login"></div>
+                        @endif
+                    </div>
+<!--
                     <form class="form-horizontal" role="form" method="POST" action="{{ route('login') }}">
                         {{ csrf_field() }}
 
@@ -50,19 +63,8 @@
                             </div>
                         </div>
 
-                        <div class="form-group">
-                        <div class="col-md-8 col-md-offset-4">
-                            <button type="submit" class="btn btn-primary">
-                                Login
-                            </button>
-                            <div id="telegram-login" style="margin-top: 2rem;"></div>
-                            <!-- Placeholder for Telegram login widget -->
-                            <a class="btn btn-link" href="{{ route('password.request') }}">
-                                Forgot Your Password?
-                            </a>
-                        </div>
-                    </div>
-                    </form>
+
+                    </form> -->
                 </div>
             </div>
         </div>
