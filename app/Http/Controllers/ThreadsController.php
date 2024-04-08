@@ -16,7 +16,7 @@ class ThreadsController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth')->except(['index', 'show']);
+        $this->middleware('auth')->except(['index', 'show','categoriesList']);
     }
 
     /**
@@ -41,6 +41,34 @@ class ThreadsController extends Controller
         return view('threads.index', [
             'threads' => $threads,
             'banners' => $banners,
+            'trending' => $trending->get()
+        ]);
+    }
+
+     /**
+     * Display a listing of the resource.
+     *
+     * @param  Channel      $channel
+     * @param ThreadFilters $filters
+     * @param \App\Trending $trending
+     * @return \Illuminate\Http\Response
+     */
+    public function categoriesList(Channel $channel, ThreadFilters $filters, Trending $trending)
+    {
+        $threads = $this->getThreads($channel, $filters);
+
+        if (request()->wantsJson()) {
+            return $threads;
+        }
+
+        $banners = Banner::all();
+        $channels = Channel::all();
+
+
+        return view('categories.index', [
+            'threads' => $threads,
+            'banners' => $banners,
+            'channels' => $channels,
             'trending' => $trending->get()
         ]);
     }

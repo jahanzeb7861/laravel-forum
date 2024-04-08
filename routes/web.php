@@ -24,6 +24,13 @@ Auth::routes();
 Route::get('/home', 'App\Http\Controllers\HomeController@index');
 
 Route::get('threads', 'App\Http\Controllers\ThreadsController@index')->name('threads');
+
+
+// CATEGORIES
+
+Route::get('categories', 'App\Http\Controllers\ThreadsController@categoriesList')->name('categories');
+
+
 Route::get('threads/create', 'App\Http\Controllers\ThreadsController@create');
 Route::get('threads/search', 'App\Http\Controllers\SearchController@show');
 Route::get('threads/{channel}/{thread}', 'App\Http\Controllers\ThreadsController@show');
