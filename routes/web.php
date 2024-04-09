@@ -32,6 +32,9 @@ Route::get('categories', 'App\Http\Controllers\ThreadsController@categoriesList'
 
 
 Route::get('threads/create', 'App\Http\Controllers\ThreadsController@create');
+Route::get('threads/create_category', 'App\Http\Controllers\ThreadsController@createCategory');
+Route::get('threads/create_category', 'App\Http\Controllers\ThreadsController@createCategory');
+Route::post('threads/create_category', 'App\Http\Controllers\ThreadsController@storeCategory');
 Route::get('threads/search', 'App\Http\Controllers\SearchController@show');
 Route::get('threads/{channel}/{thread}', 'App\Http\Controllers\ThreadsController@show');
 Route::patch('threads/{channel}/{thread}', 'App\Http\Controllers\ThreadsController@update');

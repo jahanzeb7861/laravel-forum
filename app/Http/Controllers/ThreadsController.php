@@ -86,6 +86,20 @@ class ThreadsController extends Controller
         return view('threads.create',compact('channels'));
     }
 
+
+     /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function createCategory()
+    {
+
+        $channels = Channel::all();
+
+        return view('threads.create_category',compact('channels'));
+    }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -124,6 +138,38 @@ class ThreadsController extends Controller
 
         return redirect($thread->path())
             ->with('flash', 'Your thread has been published!');
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \App\Rules\Recaptcha $recaptcha
+     * @return \Illuminate\Http\Response
+     */
+    public function storeCategory()
+    {
+        request()->validate([
+            'name' => 'required|spamfree',
+        ]);
+
+        $user = auth()->user();
+
+        if ($user->type != 'admin') {
+            return redirect()->back()
+            ->with('status', 'Only Admin can create New Category!');
+        }
+
+        $channel = Channel::create([
+            'name' => request('name'),
+            'slug' => request('name'),
+        ]);
+
+        if (request()->wantsJson()) {
+            return response($channel, 201);
+        }
+
+        return redirect('/categories')
+            ->with('flash', 'Category has been created!');
     }
 
     /**

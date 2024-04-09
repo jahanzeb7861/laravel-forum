@@ -16,6 +16,12 @@ class Channel extends Model
         return 'slug';
     }
 
+     protected $fillable = [
+        'name',
+        'slug',
+
+    ];
+
     /**
      * A channel consists of threads.
      *
