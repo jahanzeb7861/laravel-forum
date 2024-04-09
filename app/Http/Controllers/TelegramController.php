@@ -23,7 +23,7 @@ class TelegramController extends Controller
         // Log in the user
         if ($user) {
             Auth::login($user);
-            return redirect('/threads')->with('error', 'Already Connected.');
+            return redirect('/categories')->with('error', 'Already Connected.');
             // return redirect('/home'); // Redirect to the home page or any other desired location
         } else {
             return redirect('/show_connect')->with('error', 'Failed to connect with Telegram.');

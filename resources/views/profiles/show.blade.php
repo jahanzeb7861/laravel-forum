@@ -22,4 +22,16 @@
             </div>
         </div>
     </div>
+
+     <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Get the file input element
+            var fileInput = document.querySelector('input[type="file"]');
+
+            // Hide the file input
+            if (fileInput) {
+                fileInput.style.display = 'none';
+            }
+        });
+    </script>
 @endsection

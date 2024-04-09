@@ -30,7 +30,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/threads';
+    protected $redirectTo = '/categories';
 
     /**
      * Create a new controller instance.
@@ -82,6 +82,6 @@ class RegisterController extends Controller
      */
     protected function registered(Request $request, $user)
     {
-        Mail::to($user)->send(new PleaseConfirmYourEmail($user));
+        // Mail::to($user)->send(new PleaseConfirmYourEmail($user));
     }
 }
