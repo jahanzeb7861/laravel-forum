@@ -112,7 +112,7 @@ class ThreadsController extends Controller
             'title' => 'required|spamfree',
             'body' => 'required|spamfree',
             'channel_id' => 'required|exists:channels,id',
-            // 'g-recaptcha-response' => ['required', $recaptcha]
+            'g-recaptcha-response' => ['required', $recaptcha]
         ]);
 
 
@@ -140,12 +140,6 @@ class ThreadsController extends Controller
             ->with('flash', 'Your thread has been published!');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \App\Rules\Recaptcha $recaptcha
-     * @return \Illuminate\Http\Response
-     */
     public function storeCategory()
     {
         request()->validate([

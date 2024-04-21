@@ -36,4 +36,8 @@ return [
         'name' => env('TELEGRAM_BOT_NAME', 'NewLaravelForumBot')
     ],
 
+    'recaptcha' => [
+        'secret' => env('RECAPTCHA_SECRET')
+    ]
+
 ];

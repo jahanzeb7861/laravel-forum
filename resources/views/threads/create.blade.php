@@ -39,9 +39,9 @@
                                 <wysiwyg name="body"></wysiwyg>
                             </div>
 
-                            <!-- <div class="form-group">
+                            <div class="form-group">
                                 <div class="g-recaptcha" data-sitekey="6LeXrDUUAAAAAFco7ShbMrJx0fh-ZrLxK9Amd-zP"></div>
-                            </div> -->
+                            </div>
 
                             <div class="form-group">
                                 <button type="submit" class="btn btn-primary">Publish</button>
