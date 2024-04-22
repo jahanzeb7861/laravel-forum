@@ -66,6 +66,12 @@
                     </li>
                 @endif
 
+                @if(auth()->user() && auth()->user()->isAdmin())
+                    <li>
+                        <a href="/users">Manage Users</a>
+                    </li>
+                @endif
+
             </ul>
 
             <!-- Right Side Of Navbar -->

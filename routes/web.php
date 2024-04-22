@@ -80,3 +80,13 @@ Route::get('/banners/create', 'App\Http\Controllers\BannersController@create')->
 Route::get('/banners/{banner}/edit', 'App\Http\Controllers\BannersController@edit')->name('banners.edit');
 Route::post('/banners/update', 'App\Http\Controllers\BannersController@updateBanner')->name('banners.update');
 Route::delete('/banners/{banner}', 'App\Http\Controllers\BannersController@destroy')->name('banners.destroy');
+
+
+
+// Users
+Route::get('users', 'App\Http\Controllers\ManageUsersController@index')->name('users');
+Route::post('users', 'App\Http\Controllers\ManageUsersController@store')->name('users.store');
+Route::get('/users/create', 'App\Http\Controllers\ManageUsersController@create')->name('users.create');
+Route::get('/users/{banner}/edit', 'App\Http\Controllers\ManageUsersController@edit')->name('users.edit');
+Route::post('/users/update', 'App\Http\Controllers\ManageUsersController@update')->name('users.update');
+Route::delete('/users/{banner}', 'App\Http\Controllers\ManageUsersController@destroy')->name('users.destroy');
