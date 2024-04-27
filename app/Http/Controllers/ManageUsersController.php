@@ -16,7 +16,7 @@ class ManageUsersController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth')->except(['index', 'show']);
+        $this->middleware('auth')->except(['show']);
     }
 
     /**
@@ -88,10 +88,10 @@ class ManageUsersController extends Controller
     {
 
         $request->validate([
-            'title' => 'required|spamfree',
-            'link' => 'required|spamfree',
-            'size' => 'required|spamfree',
-            'position' => 'required|spamfree',
+            'title' => 'required',
+            'link' => 'required',
+            'size' => 'required',
+            'position' => 'required',
             // 'file' => 'required|file|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 

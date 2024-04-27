@@ -92,10 +92,10 @@ class BannersController extends Controller
     {
 
         $request->validate([
-            'title' => 'required|spamfree',
-            'link' => 'required|spamfree',
-            'size' => 'required|spamfree',
-            'position' => 'required|spamfree',
+            'title' => 'required',
+            'link' => 'required',
+            'size' => 'required',
+            'position' => 'required',
             // 'file' => 'required|file|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 

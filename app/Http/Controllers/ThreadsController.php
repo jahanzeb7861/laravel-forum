@@ -109,8 +109,8 @@ class ThreadsController extends Controller
     public function store(Recaptcha $recaptcha)
     {
         request()->validate([
-            'title' => 'required|spamfree',
-            'body' => 'required|spamfree',
+            'title' => 'required',
+            'body' => 'required',
             'channel_id' => 'required|exists:channels,id',
             'g-recaptcha-response' => ['required', $recaptcha]
         ]);
@@ -143,7 +143,7 @@ class ThreadsController extends Controller
     public function storeCategory()
     {
         request()->validate([
-            'name' => 'required|spamfree',
+            'name' => 'required',
         ]);
 
         $user = auth()->user();

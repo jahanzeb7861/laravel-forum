@@ -53,53 +53,55 @@
         use Illuminate\Support\Str;
     @endphp
 
-    @if(!Str::startsWith(request()->path(), 'banners') && !Str::startsWith(request()->path(), 'login'))
-        @if(!Str::startsWith(request()->path(), 'profiles'))
-            @if(!Str::startsWith(request()->path(), 'register'))
-                <div class="container">
-                    <div class="row">
-                        @if(count($banners) > 0)
-                            @foreach($banners as $banner)
-                                @if($banner->position == 'top')
-                                    <div class="form-media-box media-{{ $banner->id }}">
-                                        <!-- <img src="{{ asset('uploads/content/' . $banner->image) }}"/> -->
-                                        <a href="{{ $banner->store_link }}" target="_blank">
-                                            <img src="{{ $banner->link }}" width="{{$banner->size}}"/>
-                                        </a>
-                                    </div>
-                                @endif
-                            @endforeach
-                        @endif
+    @if(!(auth()->user() && auth()->user()->isAdmin()))
+        @if(!Str::startsWith(request()->path(), 'banners') && !Str::startsWith(request()->path(), 'login'))
+            @if(!Str::startsWith(request()->path(), 'profiles'))
+                @if(!Str::startsWith(request()->path(), 'register'))
+                    <div class="container">
+                        <div class="row">
+                            @if(count($banners) > 0)
+                                @foreach($banners as $banner)
+                                    @if($banner->position == 'top')
+                                        <div class="form-media-box media-{{ $banner->id }}">
+                                            <!-- <img src="{{ asset('uploads/content/' . $banner->image) }}"/> -->
+                                            <a href="{{ $banner->store_link }}" target="_blank">
+                                                <img src="{{ $banner->link }}" width="{{$banner->size}}"/>
+                                            </a>
+                                        </div>
+                                    @endif
+                                @endforeach
+                            @endif
+                        </div>
                     </div>
-                </div>
+                @endif
             @endif
         @endif
     @endif
 
 
-
     @yield('content')
 
-
-    @if(!Str::startsWith(request()->path(), 'banners') && !Str::startsWith(request()->path(), 'login'))
-        @if(!Str::startsWith(request()->path(), 'profiles'))
-            @if(!Str::startsWith(request()->path(), 'register'))
-                <div class="container">
-                    <div class="row">
-                        @if(count($banners) > 0)
-                            @foreach($banners as $banner)
-                                 @if($banner->position == 'bottom')
-                                    <div class="form-media-box media-{{ $banner->id }}">
-                                        <!-- <img src="{{ asset('uploads/content/' . $banner->image) }}"/> -->
-                                        <a href="{{ $banner->store_link }}" target="_blank">
-                                            <img src="{{ $banner->link }}" width="{{$banner->size}}"/>
-                                        </a>
-                                    </div>
-                                @endif
-                            @endforeach
-                        @endif
+    @if(!(auth()->user() && auth()->user()->isAdmin()))
+        @if(!Str::startsWith(request()->path(), 'banners') && !Str::startsWith(request()->path(), 'login'))
+            @if(!Str::startsWith(request()->path(), 'profiles'))
+                @if(!Str::startsWith(request()->path(), 'register'))
+                    <div class="container">
+                        <div class="row">
+                            @if(count($banners) > 0)
+                                @foreach($banners as $banner)
+                                    @if($banner->position == 'bottom')
+                                        <div class="form-media-box media-{{ $banner->id }}">
+                                            <!-- <img src="{{ asset('uploads/content/' . $banner->image) }}"/> -->
+                                            <a href="{{ $banner->store_link }}" target="_blank">
+                                                <img src="{{ $banner->link }}" width="{{$banner->size}}"/>
+                                            </a>
+                                        </div>
+                                    @endif
+                                @endforeach
+                            @endif
+                        </div>
                     </div>
-                </div>
+                @endif
             @endif
         @endif
     @endif
