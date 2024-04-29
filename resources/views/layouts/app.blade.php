@@ -27,7 +27,53 @@
     </script>
 
     <style>
-        body { padding-bottom: 100px; }
+        body {
+            padding-bottom: 100px;
+            /* background-color: #292e39; */
+            color: white !important;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            background: #292e39 url("https://crdpro.cc/styles/crdpro/img/bg-crdpro.png?_v=15");
+            background-attachment: fixed
+
+        }
+
+        .panel-body,.panel-heading,.panel-footer,.panel {
+            background-color: #292e39 !important;
+        }
+
+        h1,h2,h3,h4,h5,h6 {
+            color: white !important;
+        }
+
+        span {
+            color: white !important;
+        }
+
+        span.glyphicon {
+            color: black !important;
+        }
+
+        span.glyphicon+span {
+            color: black !important;
+        }
+
+        .btn {
+            color: black;
+        }
+
+        button.trix-button {
+            color: white !important;
+            background: white !important;
+        }
+
+        #trix-toolbar-1 {
+
+        }
+
+
         .level { display: flex; align-items: center; }
         .level-item { margin-right: 1em; }
         .flex { flex: 1; }

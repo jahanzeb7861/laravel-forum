@@ -83907,7 +83907,8 @@ $.fn.atwho.debug = false;
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', [(_vm.signedIn) ? _c('div', [_c('div', {
+
+  return _c('div', [(_vm.signedIn && window.App.user.type == 'admin') ? _c('div', [_c('div', {
     staticClass: "form-group"
   }, [_c('wysiwyg', {
     attrs: {
@@ -83936,7 +83937,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     attrs: {
       "href": "/login"
     }
-  }, [_vm._v("sign in")]), _vm._v(" to participate in this\n        discussion.\n    ")])])
+  }, [_vm._v("sign in")]), _vm._v(" as Admin to participate in this\n        discussion.\n    ")])])
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {

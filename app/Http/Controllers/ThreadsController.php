@@ -112,7 +112,7 @@ class ThreadsController extends Controller
             'title' => 'required',
             'body' => 'required',
             'channel_id' => 'required|exists:channels,id',
-            'g-recaptcha-response' => ['required', $recaptcha]
+            'g-recaptcha-response' => 'required'
         ]);
 
 
