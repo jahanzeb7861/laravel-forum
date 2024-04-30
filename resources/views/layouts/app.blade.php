@@ -87,6 +87,10 @@
                 margin-left: 4rem;
             }
         }
+        nav[role="navigation"] {
+            display: none !important;
+        }
+
     </style>
 
     @yield('head')

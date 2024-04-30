@@ -29,21 +29,25 @@ class ThreadsController extends Controller
      */
     public function index(Channel $channel, ThreadFilters $filters, Trending $trending)
     {
-        $threads = $this->getThreads($channel, $filters);
+        $threads = $this->getThreads($channel, $filters); // Query builder result
 
         if (request()->wantsJson()) {
-            return $threads;
+            return $threads; // Paginate the query builder result if JSON request
         }
 
         $banners = Banner::all();
 
+        // dd($threads);
 
+        // Convert to a collection before passing to the view
         return view('threads.index', [
-            'threads' => $threads,
+            'threads' => $threads, // Paginate the query builder result
             'banners' => $banners,
             'trending' => $trending->get()
         ]);
     }
+
+
 
      /**
      * Display a listing of the resource.
@@ -240,6 +244,6 @@ class ThreadsController extends Controller
             $threads->where('channel_id', $channel->id);
         }
 
-        return $threads->paginate(25);
+        return $threads->paginate(5);
     }
 }

@@ -41,3 +41,23 @@
         </div>
     </thread-view>
 @endsection
+
+@section('scripts')
+
+
+<script>
+    window.addEventListener('DOMContentLoaded', (event) => {
+    // Select all anchor elements inside the <div class="panel-body">
+    var anchorElements = document.querySelectorAll('.panel-body a');
+
+    // Loop through each anchor element
+    anchorElements.forEach(function(anchor) {
+
+        // Add the target="_blank" attribute
+        anchor.setAttribute('target', '_blank');
+    });
+});
+</script>
+
+
+@endsection
